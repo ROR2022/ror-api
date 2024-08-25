@@ -85,10 +85,13 @@ export class AuthService {
     //console.log('auth.service Register token: ',token);
     const dataVerification = this.mailerService.sendMail(newUser.email,newUser._id);
     const newVerification:any = await this.verificationService.create(dataVerification);
-    
-    return {
-      verification: newVerification._id
+    const dataResponse = {
+      verification: newVerification._id,
     };
+    if(!newVerification){
+      throw new UnauthorizedException('Error creating verification');
+    }
+    return dataResponse
   }
 
   async getProfile(id: string): Promise<any> {
