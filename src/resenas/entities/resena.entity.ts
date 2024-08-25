@@ -15,6 +15,9 @@ export class Resena {
   resena: string;
 
   @Prop()
+  siteResena: string;
+
+  @Prop()
   createdAt: Date;
 
   @Prop()
