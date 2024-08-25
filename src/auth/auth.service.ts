@@ -87,8 +87,10 @@ export class AuthService {
     const token= await this.jwtService.signAsync(payload);
     //const token='tempToken';
     //console.log('auth.service Register token: ',token);
-    const dataVerification = this.mailerService.sendMail(newUser.email,newUser._id);
+    const dataVerification = await this.mailerService.sendMail(newUser.email,newUser._id);
+    console.log('Data Verification:',dataVerification);
     const newVerification:any = await this.verificationService.create(dataVerification);
+    console.log('New Verification:',newVerification);
     const dataResponse = {
       verification: newVerification._id,
     };
