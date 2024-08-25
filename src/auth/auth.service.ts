@@ -50,6 +50,10 @@ export class AuthService {
     if (!user) {
       throw new UnauthorizedException('User not found');
     }
+    //validar que el usuario este activo
+    if(!user.active){
+      throw new UnauthorizedException('User not active');
+    }
     const { password: passUser } = user;
     const isMatchPassword = await bcrypt.compare(pass, passUser);
     if ( !isMatchPassword) {
