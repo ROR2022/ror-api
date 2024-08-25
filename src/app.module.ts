@@ -21,7 +21,7 @@ import { ResenasModule } from './resenas/resenas.module';
       isGlobal: true, // Hace que ConfigModule esté disponible en toda la aplicación
     }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'client/dist'),
+      rootPath: join(__dirname, '..', 'homepage/mypage'),
       exclude: ['/api/(.*)'],
     }),
     UsersModule,
