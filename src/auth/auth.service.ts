@@ -92,7 +92,7 @@ export class AuthService {
     const newVerification:any = await this.verificationService.create(dataVerification);
     console.log('New Verification:',newVerification);
     const dataResponse = {
-      verification: newVerification._id,
+      verification: newVerification.verification,
     };
     if(!newVerification){
       throw new UnauthorizedException('Error creating verification');
