@@ -1,3 +1,30 @@
+API Documentation - ROR
+Overview
+This API is developed using NestJS, a progressive Node.js framework that allows the creation of scalable and efficient applications. The API follows SOLID principles to ensure maintainable and extensible code. It is designed to serve as the backend for several frontend applications developed with Next.js, including Estetica Pink, Endodoncista-Cuernavaca, and Pediatra-Cuernavaca.
+Main Modules
+1. AppModule
+The AppModule is the root module of the application, responsible for orchestrating and interconnecting the other modules. It is the foundation on which the application is built, allowing the integration of all services and functionalities provided by the API.
+2. AuthModule
+The AuthModule manages everything related to authentication and authorization of users. It implements a system based on JWT (JSON Web Tokens) to handle user sessions, ensuring secure access to the API's various routes and resources. User passwords are securely stored in the database using bcrypt for hashing, ensuring their confidentiality.
+3. UsersModule
+The UsersModule is responsible for managing the User entity, providing services for the creation, updating, retrieval, and deletion of users. This module is designed to efficiently handle the CRUD (Create, Read, Update, Delete) operations associated with the application's users, ensuring data integrity and consistency.
+4. VerificationModule
+The VerificationModule handles user verification, focusing particularly on email confirmation. It uses the Nodemailer tool to send verification emails to users, ensuring that only verified users can access certain functionalities of the application.
+5. ReviewsModule
+The ReviewsModule groups the necessary services for managing user reviews. This module allows users to create, update, retrieve, and delete reviews, providing a simple and efficient interface for handling feedback and ratings in the various applications that use this API.
+Integration with Frontend Applications
+The API is designed to integrate efficiently with frontend applications developed in Next.js. Some of the applications currently using this API include:
+Estetica Pink: An application oriented towards the beauty and aesthetics sector.
+Endodoncista-Cuernavaca: A platform focused on managing appointments and reviews for an endodontics clinic.
+Pediatra-Cuernavaca: An application aimed at managing patients and reviews in a pediatric clinic.
+Technical Considerations
+Database: The API uses MongoDB as the primary database system, leveraging its flexibility and scalability to handle unstructured data.
+Security: Best security practices are implemented, such as encrypted password storage and user validation through email.
+Architecture: The API follows a modular approach, making it easy to maintain and scale, allowing functionalities to be added or modified without affecting the overall system.
+
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
