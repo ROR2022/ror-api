@@ -30,6 +30,19 @@ export class VerificationService implements IVerificationService {
   ): Promise<any> {
     const verification = new this.verificationModel(createVerificationDto);
     const newVerification = await verification.save();
+    //sendRecoveryPasswordMailer(createVerificationDto.email, +createVerificationDto.code);
+    if (newVerification) {
+      return { message: 'Verification created', success: true, verification: newVerification._id };
+    }else{
+    return { message: 'Verification not created', success: false}
+    } 
+  }
+
+  async createRecovery(
+    createVerificationDto: CreateVerificationDto,
+  ): Promise<any> {
+    const verification = new this.verificationModel(createVerificationDto);
+    const newVerification = await verification.save();
     sendRecoveryPasswordMailer(createVerificationDto.email, +createVerificationDto.code);
     if (newVerification) {
       return { message: 'Verification created', success: true, verification: newVerification._id };

@@ -36,7 +36,7 @@ export class VerificationController {
       createVerificationDto.code = Math.floor(1000 + Math.random() * 9000).toString();
     }
     console.log('Controller createVerificationDto:',createVerificationDto);
-    return this.verificationService.create(createVerificationDto);
+    return this.verificationService.createRecovery(createVerificationDto);
   }
 
   @Get()
