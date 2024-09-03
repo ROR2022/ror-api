@@ -14,6 +14,8 @@ import { databaseProviders } from './database/database.providers';
 import { usersProviders } from './users/users.providers';
 import { verificationProviders } from './verification/verification.providers';
 import { ResenasModule } from './resenas/resenas.module';
+import { MemeModule } from './meme/meme.module';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
@@ -24,6 +26,9 @@ import { ResenasModule } from './resenas/resenas.module';
       rootPath: join(__dirname, '..', 'homepage/mypage'),
       exclude: ['/api/(.*)'],
     }),
+    MulterModule.register({
+      dest: './uploads',
+    }),
     UsersModule,
     CommentsModule,
     VerificationModule,
@@ -31,6 +36,7 @@ import { ResenasModule } from './resenas/resenas.module';
     AuthModule,
     MailerModule,
     ResenasModule,
+    MemeModule,
   ],
   controllers: [AppController],
   providers: [
