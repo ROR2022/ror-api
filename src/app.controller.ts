@@ -13,7 +13,7 @@ export class AppController {
 
   @Post('debug') 
   postDebugMsg(@Body() body: any) {
-    console.log('body:', body);
+    console.log('body:', body, new Date().toISOString());
     return body;
   }
 }
