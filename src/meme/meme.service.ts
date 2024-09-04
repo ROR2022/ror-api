@@ -42,7 +42,8 @@ export class MemeService {
   }
 
   findAll() {
-    return this.memeModel.find();
+    //retornaremos todos los memes pero en orden descendente
+    return this.memeModel.find().sort({createdAt: -1}).exec();
     //return `This action returns all meme`;
   }
 
